@@ -1,0 +1,15 @@
+services:
+  source_sqlserver:
+    container_name: source_sqlserver
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    ports:
+      - "1433:1433"
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: "Ga130706@"
+      MSSQL_PID: "Developer"
+    volumes:
+      - source_sqlserver_data:/var/opt/mssql
+
+volumes:
+  source_sqlserver_data:
